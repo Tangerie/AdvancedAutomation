@@ -1,0 +1,11 @@
+main: "xyz.tangerie.automation.AdvancedAutomation"
+name: "AdvancedAutomation"
+version: "0.1"
+api-version: 1.16
+author: Tangerie
+prefix: "AdvancedAutomation"
+
+commands:
+  aa:
+    aliases: "aa"
+    description: ""

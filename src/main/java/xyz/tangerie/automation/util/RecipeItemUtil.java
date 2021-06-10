@@ -1,9 +1,13 @@
 package xyz.tangerie.automation.util;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.CraftingInventory;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -11,6 +15,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static org.bukkit.Bukkit.getLogger;
 
@@ -37,9 +42,10 @@ public class RecipeItemUtil {
         ItemMeta meta = stack.getItemMeta();
 
         meta.setDisplayName(ChatColor.AQUA + "Empty Recipe");
+        meta.setLore(Arrays.asList(ChatColor.GRAY + "Right-click to choose item"));
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
         meta.addEnchant(Enchantment.WATER_WORKER, 0, true);
-        meta.getPersistentDataContainer().set(AutomatedUtil.TYPE_KEY, PersistentDataType.STRING, "recipe");
+        meta.getPersistentDataContainer().set(AutomatedUtil.TYPE_KEY, PersistentDataType.STRING, "empty_recipe");
 
         stack.setItemMeta(meta);
 

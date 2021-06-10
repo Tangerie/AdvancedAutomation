@@ -19,3 +19,8 @@ C = Crafting Table
 ```
 
 Empty recipes are required to make an item recipe
+
+Right click on a recipe to open a crafting view.
+Craft the item and click on the result to set the crafting item
+
+## Commands

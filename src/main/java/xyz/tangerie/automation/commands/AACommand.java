@@ -50,11 +50,7 @@ public class AACommand extends BaseCommand {
 
             switch (type) {
                 case "recipe":
-                    if(cont.has(AutomatedUtil.RECIPE_KEY, PersistentDataType.STRING)) {
-                        p.sendRawMessage(ChatColor.YELLOW + "Recipe - " + ChatColor.RESET + cont.get(AutomatedUtil.RECIPE_KEY, PersistentDataType.STRING));
-                    } else {
-                        p.sendRawMessage(ChatColor.YELLOW + "No Recipe");
-                    }
+                    p.sendRawMessage(ChatColor.YELLOW + "Recipe - " + ChatColor.RESET + cont.get(AutomatedUtil.RECIPE_KEY, PersistentDataType.STRING));
                     break;
             }
         }

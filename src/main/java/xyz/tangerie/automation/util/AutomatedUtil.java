@@ -31,4 +31,8 @@ public class AutomatedUtil {
 
         return stack;
     }
+
+    public static boolean isItemSpecial(ItemStack stack) {
+        return stack.getItemMeta().getPersistentDataContainer().has(AutomatedUtil.TYPE_KEY, PersistentDataType.STRING);
+    }
 }

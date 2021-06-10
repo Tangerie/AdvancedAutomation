@@ -1,12 +1,13 @@
 package xyz.tangerie.automation;
 
 import co.aikar.commands.PaperCommandManager;
-import com.google.common.collect.ImmutableList;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.tangerie.automation.commands.AACommand;
+import xyz.tangerie.automation.listeners.AutomationRecipeSetListener;
+import xyz.tangerie.automation.listeners.CraftingMachineListener;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -27,7 +28,8 @@ public class AdvancedAutomation extends JavaPlugin {
         manager.registerCommand(new AACommand());
 
         registerCompletions(manager);
-
+        Bukkit.getPluginManager().registerEvents(new AutomationRecipeSetListener(), this);
+        Bukkit.getPluginManager().registerEvents(new CraftingMachineListener(), this);
         Recipes.registerAll();
 
         getServer().getScheduler().runTaskLater(this, new Runnable() {
